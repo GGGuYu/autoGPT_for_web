@@ -2,7 +2,7 @@ APP_ID = ''
 API_KEY = ''
 SECRET_KEY = ''
 PICOVOICE_API_KEY = ""  # 你的picovoice key
-keyword_path = ''  # 你的唤醒词检测离线文件地址
+keyword_path = './wakeword/Wednesday-wake-up_en_windows_v2_2_0/Wednesday-wake-up_en_windows_v2_2_0.ppn'  # 你的唤醒词检测离线文件地址
 import asyncio
 import websockets
 import struct
