@@ -1,7 +1,7 @@
-APP_ID = '35126231'
-API_KEY = 'GfF78ing9qRjc1CGSNbt2FAF'
-SECRET_KEY = '7ZA9O3LX54PGEjbhnLlUhhMwjxZrnzEm'
-PICOVOICE_API_KEY = "lWU8FFSMixz4bqR6zSXg+2kstTdyMoavRsaNam8kPWVs77KRaMngbg=="  # 你的picovoice key
+APP_ID = ''
+API_KEY = ''
+SECRET_KEY = ''
+PICOVOICE_API_KEY = ""  # 你的picovoice key
 keyword_path = './wakeword/Wednesday-wake-up_en_windows_v2_2_0/Wednesday-wake-up_en_windows_v2_2_0.ppn'  # 你的唤醒词检测离线文件地址
 import asyncio
 import websockets
