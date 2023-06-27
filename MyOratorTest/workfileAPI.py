@@ -1,12 +1,9 @@
-# 导入os模块
 import os
-# 导入sys模块，用来获取异常信息
 import sys
-# 导入subprocess模块
 import subprocess
 import shutil
 
-# 定义一个函数，接受一个文件夹路径和一个缩进级别作为参数
+# 显示工作区树形结构函数，接受一个文件夹路径和一个缩进级别作为参数
 def show_file_tree(path, level=0):
     # 定义一个空字符串，用来存储树形结构
     tree = ""
@@ -22,7 +19,7 @@ def show_file_tree(path, level=0):
     return tree
 
 
-# 定义一个函数，接受一个文件夹名作为参数
+# 创建文件夹函数，接受一个文件夹名作为参数
 def create_folder(father_folder_name , new_folder_name):
     # 拼接要创建的文件夹路径
     folder_path = os.path.join(father_folder_name, new_folder_name)
@@ -39,7 +36,7 @@ def create_folder(father_folder_name , new_folder_name):
         return "文件夹已经存在：" + folder_path
 
 
-# 定义一个函数，接受一个文件名作为参数
+# 创建文件函数，接受一个文件名作为参数
 def create_file(father_folder_name , file_name):
     # 拼接要创建的文件路径
     file_path = os.path.join(father_folder_name, file_name)
@@ -57,7 +54,7 @@ def create_file(father_folder_name , file_name):
         return "文件已经存在：" + file_path
 
 
-# 定义一个函数，接受一个文件名和一个字符串作为参数
+# 写入函数，接受一个文件名和一个字符串作为参数
 def write_file(file_name, content_string):
     # 使用try...except语句来尝试写入文件
     try:
@@ -78,7 +75,7 @@ def write_file(file_name, content_string):
         print("异常信息：" + str(e_value))
         return "写入文件失败：" + file_name + "\n" + "失败类型：" + str(e_type) + "\n" + "失败信息：" + str(e_value)
 
-# 定义一个函数，接受一个文件名作为参数
+# 读出文件函数，接受一个文件名作为参数
 def read_file(file_name):
     # 使用try...except语句来尝试读取文件
     try:
@@ -99,7 +96,7 @@ def read_file(file_name):
         return "读取文件失败：" + file_name + "\n" + "失败类型：" + str(e_type) + "\n" + "失败信息：" + str(e_value)
 
 
-# 定义一个函数，接受一个文件名作为参数
+# 运行PY文件函数，接受一个文件名作为参数
 def run_file(file_name):
     # 使用subprocess.Popen方法创建一个子进程，执行python命令，并传入文件名
     # 设置stdout和stderr参数为subprocess.PIPE，表示将标准输出和标准错误重定向到管道
@@ -120,7 +117,7 @@ def run_file(file_name):
 
 
 
-# 定义一个函数，接受一个文件名作为参数
+# 删除文件函数，接受一个文件名作为参数
 def delete_file(file_name):
     # 使用try...except语句来尝试删除文件
     try:
@@ -138,7 +135,7 @@ def delete_file(file_name):
         print("异常信息：" + str(e))
         return "删除文件失败：" + file_name + "\n" + "失败信息：" + str(e)
 
-# 定义一个函数，接受一个文件夹名作为参数
+# 删除文件夹函数，接受一个文件夹名作为参数
 def delete_folder(folder_name):
     # 使用try...except语句来尝试删除文件夹
     try:
