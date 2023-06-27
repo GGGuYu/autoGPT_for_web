@@ -48,7 +48,9 @@ const findTextAreaElement = (element) => {
 
   return null;
 };
+
 //---------------------------------------------------------以上是发送信息的函数
+
 var messageQueue = [];//机器人的所有信息
 const getTextContent = (element) => {
   if (element.className === 'ac-textBlock') {
@@ -84,6 +86,9 @@ function checkOneceMessage(root)
   }
   return Popmessage;
 }
+
+//---------------------------------------------------------以上是获取信息的函数
+
 // 创建WebSocket对象
 const socket = new WebSocket('ws://localhost:8888');
 // 封装一下socket发送python的消息方法
@@ -97,10 +102,14 @@ socket.addEventListener('open', function (event) {
 // 监听WebSocket接收消息事件
 socket.addEventListener('message', function (event) {
   console.log('收到消息:', event.data);
-  //发送给星期三
+  //发送给机器人
   addTextToTextArea(event.data);
 });
-//准备打开定时器
+
+//---------------------------------------------------------以上是服务器相关函数与对象
+
+
+//------------------------主程序 通过定时器监控网页实现模拟人们发送信息看到信息
 var old_message = '';
 var cur_message = '';
 var locked = false;
