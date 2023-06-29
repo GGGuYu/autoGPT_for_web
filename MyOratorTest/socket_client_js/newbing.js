@@ -17,7 +17,9 @@ const addTextToTextArea = (message) => {
     textAreaElement.dispatchEvent(new Event('input', { bubbles: true }));
     // 模拟用户按下"Enter"键
     const enterKeyEvent = new KeyboardEvent('keydown', { key: 'Enter' });
-    textAreaElement.dispatchEvent(enterKeyEvent);
+    setTimeout(function() {
+      textAreaElement.dispatchEvent(enterKeyEvent);
+    }, 300);
   }
 };
 
