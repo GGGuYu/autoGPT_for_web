@@ -49,10 +49,8 @@ async def receive(websocket, path):
     # 添加新的客户端到集合中
     clients.add(websocket)
     print('有新的客户端连接')
-    LOCKED = False
     FRIST = True
     SystemLocked = False
-    wordLocked = True
     inputs = "" #用户输入
     try:
         async for message in websocket:
