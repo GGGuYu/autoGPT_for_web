@@ -155,11 +155,14 @@ setInterval(function(){
     if(locked)
     {
       cur_message = cur_message.trim();//去除两端多余空格
-      let last_char = cur_message[cur_message.length-1];
+      let last_char = cur_message.slice(-1);
+      let last_emoji = cur_message.slice(-2);
       console.log("cur_message: "+cur_message);
       console.log("last_char: "+last_char);
+      console.log("last_emoji: "+last_emoji);
       //减少输出卡了之后出现的回复一半的问题，至少回复是个整句，这样出错的概率大大减小，也可以调快定时器频率
-      if (['。', '.', '?', '!', '？', '！','>','�','�'].includes(last_char))
+      if (['。', '.', '?', '!', '？', '！','>','}'].includes(last_char)
+      || ['😉','😊','🙏','😍','😎','😢','😡'].includes(last_emoji))
       {
         sendMessage(cur_message);
         console.log("发送给用户的信息:" + cur_message);
