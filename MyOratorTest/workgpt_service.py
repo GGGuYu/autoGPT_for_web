@@ -1,37 +1,9 @@
-APP_ID = ''
-API_KEY = ''
-SECRET_KEY = ''
-PICOVOICE_API_KEY = ''  # 你的picovoice key
-keyword_path = './wakeword/Wednesday-wake-up_en_windows_v2_2_0/Wednesday-wake-up_en_windows_v2_2_0.ppn'  # 你的唤醒词检测离线文件地址
 import asyncio
 import websockets
-import pygame
-from databaseHelper import DatabaseHelper
-from APIforWednesday import create_word_file,read_txt_file,read_word_file,open_website,play_music
-from speechModule.speech2test import BaiduASR
-from speechModule.test2speech import BaiduTTS
 from Check_API import check_API
-
-def play_reminds(file_name):
-    # 代码来自Linky的贡献
-    pygame.mixer.init()
-    pygame.mixer.music.load(file_name)
-    pygame.mixer.music.play()
-    while pygame.mixer.music.get_busy():
-        pygame.time.Clock().tick(10)
-    pygame.mixer.quit()
-
-
-# 全局变量，用于保存当前正在播放的音乐文件名
-current_playing = None
 
 # 存储所有连接的客户端
 clients = set()
-URL="wss://nls-gateway.cn-shanghai.aliyuncs.com/ws/v1"
-
-databaseHelper = DatabaseHelper()
-baiduTts = BaiduTTS(APP_ID, API_KEY, SECRET_KEY)
-baiduAsr = BaiduASR(APP_ID, API_KEY, SECRET_KEY)
 
 def wake_up_3():
     strings = [
@@ -77,7 +49,6 @@ async def receive(websocket, path):
     # 添加新的客户端到集合中
     clients.add(websocket)
     print('有新的客户端连接')
-    Recall = False
     LOCKED = False
     FRIST = True
     SystemLocked = False
@@ -93,35 +64,18 @@ async def receive(websocket, path):
 
             #判断指令结束
             if FRIST:
-                if Recall:
-                    result = '我回来了星期三，你还在吗？'
-                else:
-                    result = wake_up_3()
-                    Recall = True
+                result = wake_up_3()
                 FRIST = False
             elif SystemLocked:
                 result = "(提示:每次只能单独使用一条API)这是一条系统API返回信息:\n" + txtresult
                 SystemLocked = False
             else:
                 while True:
-                    # inputs = input() 
-                    inputs = '1'
-                    if inputs == '1':
-                        # cnt += 1
-                        cnt = 1
-                        if cnt == 1:
-                            print("请输入您的问题:")
-                            result = input()
-                        else:
-                            print("正在录制，结束请按2")
-                        break
-            #提示用户语音已经发出的音效
+                    print("请输入您的问题:")
+                    result = input()
+                    break
             result = result.strip()
-            if result != "" and result != None and result != " " and not wordLocked:
-                # t2 = threading.Thread(target=play_reminds, args=("remind_1.wav",))
-                # t2.start()
-                pass
-            #将消息发送给所有已连接的客户端（除了当前客户端）
+            #将消息发送给所有已连接的客户端
             await websocket.send(result)
 
     except websockets.exceptions.ConnectionClosed:
