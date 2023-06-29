@@ -51,7 +51,6 @@ async def receive(websocket, path):
     print('有新的客户端连接')
     FRIST = True
     SystemLocked = False
-    inputs = "" #用户输入
     try:
         async for message in websocket:
             print(f'接收到客户端发来的消息：{message}')
