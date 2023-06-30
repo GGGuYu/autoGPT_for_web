@@ -1,16 +1,16 @@
 ## 1.拥有一个独立文件夹并可自主操作的智能助手 可调试程序（B站视频Hello world实验程序）
 
-### B站的朋友直接clone下来，将MyOratorTest拖入您的IDE中
+#### B站的朋友直接clone下来，将MyOratorTest拖入您的IDE中
 
-1.打开workgpt_service.py启动ws服务器
+#### 1.打开workgpt_service.py启动ws服务器
 
-2.将newbing.js复制在newbing网页的控制台中，回车
+#### 2.将newbing.js复制在newbing网页的控制台中，回车
 
 成功复现视频中的实验程序
 
 ## 2.newbing驱动语音版助手星期三(唤醒词加连续对话)
 
-### 1.在new_bing_service.py中
+#### 1.在new_bing_service.py中
 
 将您的百度语音(免费的百度云服务)的，将以下填好
 
@@ -24,8 +24,8 @@ PICOVOICE_API_KEY = ""  # 你的picovoice key
 
 keyword_path = '' #唤醒词模型文件路径 
 
-2.启动newbing_service.py 等待1到两秒看到程序输出服务器启动
+#### 2.启动newbing_service.py 等待1到两秒看到程序输出服务器启动
 
-3.将newbing.js.js复制在newbing网页的控制台中，回车
+#### 3.将newbing.js.js复制在newbing网页的控制台中，回车
 
-4.此时控制台会初始化唤醒词模块，大约一秒后初始化成功，即可语音唤醒助手
+#### 4.此时控制台会初始化唤醒词模块，大约一秒后初始化成功，即可语音唤醒助手
