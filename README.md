@@ -4,7 +4,7 @@
 
 1.打开workgpt_service.py启动ws服务器
 
-2.将newbing_service.js复制在newbing网页的控制台中，回车
+2.将newbing.js复制在newbing网页的控制台中，回车
 
 成功复现视频中的实验程序
 
@@ -24,6 +24,6 @@ PICOVOICE_API_KEY = ""  # 你的picovoice key
 
 2.启动newbing_service.py 等待1到两秒看到程序输出服务器启动
 
-3.将newbing_service.js复制在newbing网页的控制台中，回车
+3.将newbing.js.js复制在newbing网页的控制台中，回车
 
 4.此时控制台会初始化唤醒词模块，大约一秒后初始化成功，即可语音唤醒助手
