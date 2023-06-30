@@ -19,7 +19,7 @@ const addTextToTextArea = (message) => {
     const enterKeyEvent = new KeyboardEvent('keydown', { key: 'Enter' });
     setTimeout(function() {
       textAreaElement.dispatchEvent(enterKeyEvent);
-    }, 300);
+    }, 200);
   }
 };
 
@@ -118,7 +118,7 @@ var locked = false;
 // 这个标志表示刚刚才发送过消息，那么至少应该等一次检测之后才有可能发送消息，而不要出现因为卡顿导致快速发了两条消息的情况。
 var sign = false; 
 var net_bug_cnt = 0;//可以忽略掉的对比次数,因为如果刚刚发了，短时间内的变化说明是网络情况不稳定
-var net_bug_cnt_max = 5;//最大上限,通过调整这个数可以翻倍等待时间
+var net_bug_cnt_max = 4;//最大上限,通过调整这个数可以翻倍等待时间
 //先发送一个消息告诉服务器，已经连接开始了
 setTimeout(function() {
   sendMessage('连接开始！')
