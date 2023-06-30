@@ -20,7 +20,9 @@ SECRET_KEY = ''
 
 在picovoice官网获取一个您自己需要的唤醒词(免费)，替换掉对应的唤醒词文件 将以下填好
 
-PICOVOICE_API_KEY = ""  # 你的picovoice key
+PICOVOICE_API_KEY = ""  # 你的picovoice key 
+
+keyword_path = '' #唤醒词模型文件路径 
 
 2.启动newbing_service.py 等待1到两秒看到程序输出服务器启动
 
