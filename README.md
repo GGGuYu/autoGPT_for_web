@@ -26,6 +26,6 @@ keyword_path = '' #唤醒词模型文件路径
 
 #### 2.启动newbing_service.py 等待1到两秒看到程序输出服务器启动
 
-#### 3.将newbing.js.js复制在newbing网页的控制台中，回车
+#### 3.将newbing.js复制在newbing网页的控制台中，回车
 
 #### 4.此时控制台会初始化唤醒词模块，大约一秒后初始化成功，即可语音唤醒助手
